@@ -10,10 +10,16 @@ function App() {
   const [todos, setTodos] = React.useState([]);
 
   React.useEffect(() => {
-    axios.get("http://localhost:3000/todo").then((response) => {
-      console.log(response);
-      setTodos(response?.data);
-    });
+    axios
+      .get(`${process.env.REACT_APP_SERVER_URL}todo`)
+      .then((response) => {
+        console.log(response);
+        setTodos(response?.data);
+      })
+      .catch((error) => {
+        alert(error);
+      })
+      .finally(() => {});
   }, []);
 
   return (

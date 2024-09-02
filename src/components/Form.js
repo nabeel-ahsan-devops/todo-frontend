@@ -9,7 +9,7 @@ function Form({ setTodos }) {
     event.preventDefault();
 
     axios
-      .post("http://localhost:3000/todo", {
+      .post(`${process.env.REACT_APP_SERVER_URL}todo`, {
         title: todo,
         is_completed: false,
       })

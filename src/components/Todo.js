@@ -19,7 +19,10 @@ function Todo({ item, todos, setTodos }) {
     };
 
     axios
-      .patch(`http://localhost:3000/todo/${item?._id}`, updatedTodo)
+      .patch(
+        `${process.env.REACT_APP_SERVER_URL}todo/${item?._id}`,
+        updatedTodo
+      )
       .then((response) => {
         setTodos((prevTodos) =>
           prevTodos.map((todo) =>
@@ -47,7 +50,10 @@ function Todo({ item, todos, setTodos }) {
     };
 
     axios
-      .patch(`http://localhost:3000/todo/${item?._id}`, updatedTodo)
+      .patch(
+        `${process.env.REACT_APP_SERVER_URL}todo/${item?._id}`,
+        updatedTodo
+      )
       .then((response) => {
         alert("Updated Successfully");
 
@@ -71,7 +77,7 @@ function Todo({ item, todos, setTodos }) {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:3000/todo/${item?._id}`)
+      .delete(`${process.env.REACT_APP_SERVER_URL}todo/${item?._id}`)
       .then((response) => {
         alert("Delete Successfully");
         setTodos((prevTodos) =>
