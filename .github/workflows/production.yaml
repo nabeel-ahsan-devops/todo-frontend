@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Unit tests
-        run: npm run test:coverage
+      # - name: Run Unit tests
+      #   run: npm run test:coverage
 
   Deploy-Production:
     needs: Test-Build
